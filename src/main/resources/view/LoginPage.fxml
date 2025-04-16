@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="loginPage" prefHeight="750.0" prefWidth="1500.0" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.LoginPageController">
+   <children>
+      <ImageView fitHeight="606.0" fitWidth="584.0" layoutX="871.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/login.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="127.0" layoutY="104.0" prefHeight="542.0" prefWidth="550.0" style="-fx-border-color: #ffffff; -fx-border-radius: 30;">
+         <children>
+            <Label layoutX="211.0" layoutY="61.0" prefHeight="36.0" prefWidth="128.0" style="-fx-text-fill: #ffffff;" text="Welcome !">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="141.0" style="-fx-text-fill: #ffffff;" text="Enter Your Username">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtLoginUsername" layoutX="70.0" layoutY="173.0" prefHeight="47.0" prefWidth="411.0" promptText="Username" />
+            <Label layoutX="70.0" layoutY="250.0" style="-fx-text-fill: #ffffff;" text="Enter Your Password">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="psPassword" layoutX="70.0" layoutY="282.0" prefHeight="47.0" prefWidth="411.0" />
+            <Label fx:id="lblForgotPassword" layoutX="193.0" layoutY="354.0" onMouseClicked="#lblForgotPasswordOnMouseClicked" style="-fx-text-fill: #ff0000;" text="Forgot Your Password ?">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnSignIn" layoutX="127.0" layoutY="395.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="36.0" prefWidth="296.0" style="-fx-background-color: #0087ff; -fx-text-fill: #ffffff; -fx-background-radius: 15;" text="Sign In">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="106.0" layoutY="460.0" style="-fx-text-fill: #ffffff;" text="Don't Have An Account ? ">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCreateAccount" layoutX="297.0" layoutY="460.0" onMouseClicked="#lblCreateAccountOnMouseClicked" style="-fx-text-fill: #0064ff;" text="Create New Account.">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
