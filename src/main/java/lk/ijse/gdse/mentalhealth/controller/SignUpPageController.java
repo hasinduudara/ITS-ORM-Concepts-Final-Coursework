@@ -3,17 +3,20 @@ package lk.ijse.gdse.mentalhealth.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse.mentalhealth.bo.custom.UserBo;
 import lk.ijse.gdse.mentalhealth.util.Role;
-import lk.ijse.gdse.mentalhealth.bo.custom.impl.UserBoImpl;
+import lk.ijse.gdse.mentalhealth.bo.custom.impl.UserBOImpl;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class SignUpPageController {
+public class SignUpPageController implements Initializable {
 
     @FXML
     private Button btnSignUp;
@@ -39,7 +42,15 @@ public class SignUpPageController {
     @FXML
     private TextField txtUserName;
 
-    private final UserBo userBo = new UserBoImpl();
+    private final UserBo userBo = new UserBOImpl();
+
+    public void initialize (URL url, ResourceBundle resourceBundle) {
+        // Initialize the ComboBox with roles
+        comboxRole.getItems().addAll(
+                "Admin",
+                "Receptionist"
+        );
+    }
 
     @FXML
     void btnSignUpOnAction(ActionEvent event) {
@@ -75,7 +86,11 @@ public class SignUpPageController {
 
     @FXML
     void comboxRoleOnAction(ActionEvent event) {
-
+        // Handle role selection if needed
+        String selectedRole = comboxRole.getValue();
+        if (selectedRole != null) {
+            System.out.println("Selected Role: " + selectedRole);
+        }
     }
 
     @FXML
