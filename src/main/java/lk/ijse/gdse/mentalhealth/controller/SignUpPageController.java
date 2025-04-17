@@ -10,45 +10,51 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.util.Objects;
 
-public class LoginPageController {
+public class SignUpPageController {
 
     @FXML
-    private Button btnSignIn;
+    private Button btnSignUp;
 
     @FXML
-    private Label lblCreateAccount;
+    private ComboBox<?> comboxRole;
 
     @FXML
-    private Label lblForgotPassword;
-
-    @FXML
-    private AnchorPane loginPage;
+    private Label lblGoToSignIn;
 
     @FXML
     private PasswordField psPassword;
 
     @FXML
-    private TextField txtLoginUsername;
+    private AnchorPane signUpPage;
 
     @FXML
-    void btnSignInOnAction(ActionEvent event) {
+    private TextField txtEmail;
+
+    @FXML
+    private TextField txtName;
+
+    @FXML
+    private TextField txtUserName;
+
+    @FXML
+    void btnSignUpOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    void lblCreateAccountOnMouseClicked(MouseEvent event) {
-        loadUI("/view/SignUpPage.fxml");
+    void comboxRoleOnAction(ActionEvent event) {
+
     }
 
     @FXML
-    void lblForgotPasswordOnMouseClicked(MouseEvent event) {
-
+    void lblGoToSignInOnAction(MouseEvent event) {
+        loadUI("/view/LoginPage.fxml");
     }
 
     private void loadUI(String resource) {
-        loginPage.getChildren().clear();
+        signUpPage.getChildren().clear();
         try {
-            loginPage.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(resource))));
+            signUpPage.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(resource))));
         } catch (IOException e) {
             showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
         }
