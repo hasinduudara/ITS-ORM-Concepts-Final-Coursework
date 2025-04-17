@@ -6,6 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.mentalhealth.bo.custom.UserBo;
+import lk.ijse.gdse.mentalhealth.util.Role;
+import lk.ijse.gdse.mentalhealth.bo.custom.impl.UserBoImpl;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -16,7 +19,7 @@ public class SignUpPageController {
     private Button btnSignUp;
 
     @FXML
-    private ComboBox<?> comboxRole;
+    private ComboBox<String> comboxRole;
 
     @FXML
     private Label lblGoToSignIn;
@@ -36,9 +39,38 @@ public class SignUpPageController {
     @FXML
     private TextField txtUserName;
 
+    private final UserBo userBo = new UserBoImpl();
+
     @FXML
     void btnSignUpOnAction(ActionEvent event) {
+        String name = txtName.getText().trim();
+        String userName = txtUserName.getText().trim();
+        String email = txtEmail.getText().trim();
+        String password = psPassword.getText().trim();
+        String selectedRole = comboxRole.getValue();
 
+        if (name.isEmpty() || userName.isEmpty() || email.isEmpty() || password.isEmpty() || selectedRole == null) {
+            showAlert("Error", "All fields are required!", Alert.AlertType.ERROR);
+            return;
+        }
+
+        if (!password.equals(psPassword.getText().trim())) {
+            showAlert("Error", "Passwords do not match!", Alert.AlertType.ERROR);
+            return;
+        }
+
+        // Convert string to Role Enum
+        Role role = Role.valueOf(selectedRole);
+
+        // Save user to database
+        boolean success = userBo.registerUser(name, userName, email, password, role);
+
+        if (success) {
+            showAlert("Success", "Account created successfully!", Alert.AlertType.INFORMATION);
+            loadUI("/view/LoginPage.fxml");
+        } else {
+            showAlert("Error", "Failed to create account!", Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
