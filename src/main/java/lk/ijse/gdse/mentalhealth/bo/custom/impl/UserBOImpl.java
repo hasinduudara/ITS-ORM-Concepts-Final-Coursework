@@ -7,6 +7,8 @@ import lk.ijse.gdse.mentalhealth.entity.User;
 import lk.ijse.gdse.mentalhealth.util.PasswordEncryptionUtil;
 import lk.ijse.gdse.mentalhealth.util.Role;
 
+import java.util.ArrayList;
+
 public class UserBOImpl implements UserBo{
     private final UserDAO userDAO = new UserDAOImpl();
 
@@ -21,5 +23,15 @@ public class UserBOImpl implements UserBo{
         User user = new User(newUserId, name, userName, email, hashedPassword, role);
         userDAO.save(user);
         return true;
+    }
+
+    @Override
+    public ArrayList<String> getAllRoll() {
+        return userDAO.getAllRolls();
+    }
+
+    @Override
+    public User findByRoll(String selectedRoll) throws Exception {
+        return userDAO.findByRoll(selectedRoll);
     }
 }

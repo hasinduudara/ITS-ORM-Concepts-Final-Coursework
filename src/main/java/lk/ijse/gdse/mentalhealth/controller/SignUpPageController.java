@@ -16,13 +16,13 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class SignUpPageController implements Initializable {
+public class SignUpPageController {
 
     @FXML
     private Button btnSignUp;
 
     @FXML
-    private ComboBox<String> comboxRole;
+    private ComboBox<Role> comboxRole;
 
     @FXML
     private Label lblGoToSignIn;
@@ -44,12 +44,11 @@ public class SignUpPageController implements Initializable {
 
     private final UserBo userBo = new UserBOImpl();
 
-    public void initialize (URL url, ResourceBundle resourceBundle) {
-        // Initialize the ComboBox with roles
-        comboxRole.getItems().addAll(
-                "Admin",
-                "Receptionist"
-        );
+    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@gmail\\.com$";
+
+    @FXML
+    public void initialize() {
+        comboxRole.getItems().addAll(Role.values());
     }
 
     @FXML
@@ -58,15 +57,15 @@ public class SignUpPageController implements Initializable {
         String userName = txtUserName.getText().trim();
         String email = txtEmail.getText().trim();
         String password = psPassword.getText().trim();
-        String selectedRole = comboxRole.getValue();
+        String selectedRole = String.valueOf((Role) comboxRole.getValue());
 
         if (name.isEmpty() || userName.isEmpty() || email.isEmpty() || password.isEmpty() || selectedRole == null) {
             showAlert("Error", "All fields are required!", Alert.AlertType.ERROR);
             return;
         }
 
-        if (!password.equals(psPassword.getText().trim())) {
-            showAlert("Error", "Passwords do not match!", Alert.AlertType.ERROR);
+        if (!isValidEmail(txtEmail.getText())) {
+            showAlert("Error", "Please enter a valid email address!", Alert.AlertType.ERROR);
             return;
         }
 
@@ -86,11 +85,14 @@ public class SignUpPageController implements Initializable {
 
     @FXML
     void comboxRoleOnAction(ActionEvent event) {
-        // Handle role selection if needed
-        String selectedRole = comboxRole.getValue();
-        if (selectedRole != null) {
-            System.out.println("Selected Role: " + selectedRole);
-        }
+        // Example: print selected role
+        Object selectedRole = comboxRole.getValue();
+        System.out.println("Selected role: " + selectedRole);
+    }
+
+
+    private boolean isValidEmail(String text) {
+        return text.matches(EMAIL_PATTERN);
     }
 
     @FXML

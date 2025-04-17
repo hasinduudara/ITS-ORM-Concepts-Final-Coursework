@@ -6,6 +6,7 @@ import lk.ijse.gdse.mentalhealth.entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
@@ -15,9 +16,19 @@ public class UserDAOImpl implements UserDAO {
     public User getUserByUsername(String userName) {
         try (Session session = factoryConfiguration.getSession()) {
             return session.createQuery("FROM User WHERE username = :username", User.class)
-                    .setParameter("userName", userName)
+                    .setParameter("username", userName)
                     .uniqueResult();
         }
+    }
+
+    @Override
+    public ArrayList<String> getAllRolls() {
+        return null;
+    }
+
+    @Override
+    public User findByRoll(String selectedId) throws Exception {
+        return null;
     }
 
     @Override

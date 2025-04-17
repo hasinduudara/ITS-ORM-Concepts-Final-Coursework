@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.gdse.mentalhealth.bo.AuthService;
+import lk.ijse.gdse.mentalhealth.util.Role;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -30,16 +32,34 @@ public class LoginPageController {
     @FXML
     private TextField txtLoginUsername;
 
+    private final AuthService authService = new AuthService(); // Injecting AuthService
 
+    private boolean isPasswordVisible = false;
 
     @FXML
     void btnSignInOnAction(ActionEvent event) {
+        String username = txtLoginUsername.getText().trim();
+        String password = psPassword.getText().trim();
 
+        if (username.isEmpty() || password.isEmpty()) {
+            showAlert("Error", "Username and Password cannot be empty!", Alert.AlertType.ERROR);
+            return;
+        }
+
+        Role userRole = authService.authenticateUser(username, password);
+
+        if (userRole == null) {
+            navigateToDashBoard(userRole);
+        } else {
+            showAlert("Error", "Invalid username or password!", Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
-    void lblCreateAccountOnMouseClicked(MouseEvent event) {
-        loadUI("/view/SignUpPage.fxml");
+    void lblCreateAccountOnMouseClicked(MouseEvent event) throws IOException {
+//        loadUI("/view/SignUpPage.fxml");
+        loginPage.getChildren().clear();
+        loginPage.getChildren().add(FXMLLoader.load(getClass().getResource("/view/SignUpPage.fxml")));
     }
 
     @FXML
@@ -61,6 +81,16 @@ public class LoginPageController {
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    private void navigateToDashBoard (Role role) {
+        if (role == Role.ADMIN) {
+            loadUI("/view/AdminDashboard.fxml");
+        } else if (role == Role.RECEPTIONIST) {
+            loadUI("/view/ReceptionistDashboard.fxml");
+        } else {
+            showAlert("Error", "Unauthorized access!", Alert.AlertType.ERROR);
+        }
     }
 
 }
