@@ -48,7 +48,7 @@ public class LoginPageController {
 
         Role userRole = authService.authenticateUser(username, password);
 
-        if (userRole == null) {
+        if (userRole != null) {
             navigateToDashBoard(userRole);
         } else {
             showAlert("Error", "Invalid username or password!", Alert.AlertType.ERROR);
