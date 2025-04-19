@@ -2,11 +2,20 @@ package lk.ijse.gdse.mentalhealth.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class AdminDashboardController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class AdminDashboardController implements Initializable {
+
+    private static AdminDashboardController instance;
 
     @FXML
     private AnchorPane AdminDashboardPage;
@@ -41,6 +50,14 @@ public class AdminDashboardController {
     @FXML
     private Label lblAdminDashboardTime;
 
+    public AdminDashboardController() {
+        instance = this;
+    }
+
+    public static AdminDashboardController getInstance() {
+        return instance;
+    }
+
     @FXML
     void btnLogOutOnAction(ActionEvent event) {
 
@@ -74,6 +91,38 @@ public class AdminDashboardController {
     @FXML
     void btnTherapySessionOnAction(ActionEvent event) {
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        navigateTo("/view/AdminDashboard.fxml");
+    }
+
+    public void navigateTo(String fxmlPath) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource(fxmlPath));
+            AdminDashboardPage.getChildren().clear();
+            AdminDashboardPage.getChildren().add(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to load the page!").show();
+        }
+    }
+
+    private void showAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void loadUI(String resource) {
+        AdminDashboardPage.getChildren().clear();
+        try {
+            AdminDashboardPage.getChildren().add(FXMLLoader.load(getClass().getResource(resource)));
+        } catch (IOException e) {
+            showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
+        }
     }
 
 }
