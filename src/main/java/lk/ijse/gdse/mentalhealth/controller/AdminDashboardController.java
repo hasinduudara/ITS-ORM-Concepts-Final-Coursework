@@ -95,17 +95,21 @@ public class AdminDashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        navigateTo("/view/AdminDashboard.fxml");
+        navigateTo("/view/TherapistManagementForm.fxml");
     }
 
     public void navigateTo(String fxmlPath) {
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource(fxmlPath));
             AdminDashboardPage.getChildren().clear();
-            AdminDashboardPage.getChildren().add(pane);
+            AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
+
+            load.prefWidthProperty().bind(AdminDashboardPage.widthProperty());
+            load.prefHeightProperty().bind(AdminDashboardPage.heightProperty());
+            AdminDashboardPage.getChildren().add(load);
+
         } catch (IOException e) {
             e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Failed to load the page!").show();
+            new Alert(Alert.AlertType.ERROR, "Failed to load page!").show();
         }
     }
 
