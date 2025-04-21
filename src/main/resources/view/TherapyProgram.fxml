@@ -10,15 +10,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="therapyProgramPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-color: #3b3b3b; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.TherapyProgramController">
    <children>
-      <Label layoutX="30.0" layoutY="24.0" style="-fx-text-fill: #f3ff00;" text="Therapy Program Management">
+      <Label layoutX="20.0" layoutY="14.0" style="-fx-text-fill: #f3ff00;" text="Therapy Program Management">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Pane layoutX="38.0" layoutY="71.0" prefHeight="194.0" prefWidth="990.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ffffff;">
+      <Pane layoutX="28.0" layoutY="61.0" prefHeight="194.0" prefWidth="990.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ffffff;">
          <children>
             <Label layoutX="22.0" layoutY="32.0" style="-fx-text-fill: #ffffff;" text="Program ID :">
                <font>
@@ -86,7 +85,7 @@
             </HBox>
          </children>
       </Pane>
-      <TableView fx:id="tblTherapistProgramManagement" layoutX="38.0" layoutY="294.0" onMouseClicked="#tblTherapistProgramManagementOnMouseClicked" prefHeight="395.0" prefWidth="990.0">
+      <TableView fx:id="tblTherapistProgramManagement" layoutX="28.0" layoutY="284.0" onMouseClicked="#tblTherapistProgramManagementOnMouseClicked" prefHeight="395.0" prefWidth="990.0">
          <columns>
             <TableColumn fx:id="colProgramID" prefWidth="131.19997787475586" text="Program ID" />
             <TableColumn fx:id="colProgramName" prefWidth="372.00001525878906" text="Program Name" />
