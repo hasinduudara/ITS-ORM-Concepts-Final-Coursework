@@ -171,14 +171,14 @@ public class TherapistManagementController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Initialize the table columns and other UI components here
-        colTherapistID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colTherapistName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colTherapistID.setCellValueFactory(new PropertyValueFactory<>("therapistID"));
+        colTherapistName.setCellValueFactory(new PropertyValueFactory<>("therapistName"));
         colTherapistSpecialty.setCellValueFactory(new PropertyValueFactory<>("specialization"));
         colTherapistAvailability.setCellValueFactory(new PropertyValueFactory<>("availability"));
 
         // Load data into the table
         loadTherapists();
-        generateNewId();
+//        generateNewId();
     }
 
     private void generateNewId() {

@@ -80,12 +80,12 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void btnTherapistOnAction(ActionEvent event) {
-
+        navigateTo("/view/TherapistManagement.fxml");
     }
 
     @FXML
     void btnTherapyProgramOnAction(ActionEvent event) {
-
+        navigateTo("/view/TherapyProgram.fxml");
     }
 
     @FXML
@@ -95,17 +95,17 @@ public class AdminDashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        navigateTo("/view/TherapistManagementForm.fxml");
+        navigateTo("/view/TherapistManagement.fxml");
     }
 
     public void navigateTo(String fxmlPath) {
         try {
-            AdminDashboardPage.getChildren().clear();
+            AnchorPaneAdminDashboard.getChildren().clear();
             AnchorPane load = FXMLLoader.load(getClass().getResource(fxmlPath));
 
-            load.prefWidthProperty().bind(AdminDashboardPage.widthProperty());
-            load.prefHeightProperty().bind(AdminDashboardPage.heightProperty());
-            AdminDashboardPage.getChildren().add(load);
+            load.prefWidthProperty().bind(AnchorPaneAdminDashboard.widthProperty());
+            load.prefHeightProperty().bind(AnchorPaneAdminDashboard.heightProperty());
+            AnchorPaneAdminDashboard.getChildren().add(load);
 
         } catch (IOException e) {
             e.printStackTrace();

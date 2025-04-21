@@ -72,6 +72,7 @@ public class LoginPageController {
         try {
             loginPage.getChildren().add(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(resource))));
         } catch (IOException e) {
+            System.out.println("Failed to load UI: " + e.getMessage());
             showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
         }
     }
@@ -87,7 +88,7 @@ public class LoginPageController {
         if (role == Role.ADMIN) {
             loadUI("/view/AdminDashboard.fxml");
         } else if (role == Role.RECEPTIONIST) {
-            loadUI("/view/ReceptionistDashboard.fxml");
+//            loadUI("/view/ReceptionistDashboard.fxml");
         } else {
             showAlert("Error", "Unauthorized access!", Alert.AlertType.ERROR);
         }

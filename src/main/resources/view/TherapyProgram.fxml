@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="therapyProgramPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-color: #3b3b3b; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.TherapyProgramController">
+   <children>
+      <Label layoutX="30.0" layoutY="24.0" style="-fx-text-fill: #f3ff00;" text="Therapy Program Management">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Pane layoutX="38.0" layoutY="71.0" prefHeight="194.0" prefWidth="990.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #ffffff;">
+         <children>
+            <Label layoutX="22.0" layoutY="32.0" style="-fx-text-fill: #ffffff;" text="Program ID :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblProgramID" layoutX="128.0" layoutY="25.0" prefHeight="36.0" prefWidth="251.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5; -fx-text-fill: #000000;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="455.0" layoutY="32.0" style="-fx-text-fill: #ffffff;" text="Program Name :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textName" layoutX="588.0" layoutY="25.0" prefHeight="36.0" prefWidth="380.0" promptText="Enter Name" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="22.0" layoutY="87.0" style="-fx-text-fill: #ffffff;" text="Duration :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textDuration" layoutX="128.0" layoutY="80.0" prefHeight="36.0" prefWidth="251.0" promptText="Duration" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="455.0" layoutY="87.0" style="-fx-text-fill: #ffffff;" text="Fee :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtFee" layoutX="588.0" layoutY="80.0" prefHeight="36.0" prefWidth="380.0" promptText="Fee" style="-fx-background-color: #ffffff; -fx-background-radius: 5;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <HBox layoutX="249.0" layoutY="132.0" prefHeight="36.0" prefWidth="568.0" spacing="20.0">
+               <children>
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="36.0" prefWidth="126.0" style="-fx-background-color: #0093ff; -fx-text-fill: #ffffff;" text="Save">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="36.0" prefWidth="126.0" style="-fx-background-color: #00b42e; -fx-text-fill: #ffffff;" text="Update">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="36.0" prefWidth="126.0" style="-fx-background-color: #d60000; -fx-text-fill: #ffffff;" text="Delete">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnClear" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="36.0" prefWidth="126.0" style="-fx-background-color: #b700c6; -fx-text-fill: #ffffff;" text="Clear">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <TableView fx:id="tblTherapistProgramManagement" layoutX="38.0" layoutY="294.0" onMouseClicked="#tblTherapistProgramManagementOnMouseClicked" prefHeight="395.0" prefWidth="990.0">
+         <columns>
+            <TableColumn fx:id="colProgramID" prefWidth="131.19997787475586" text="Program ID" />
+            <TableColumn fx:id="colProgramName" prefWidth="372.00001525878906" text="Program Name" />
+            <TableColumn fx:id="colDuration" prefWidth="255.20001220703125" text="Duration" />
+            <TableColumn fx:id="colFee" prefWidth="228.800048828125" text="Fee" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
