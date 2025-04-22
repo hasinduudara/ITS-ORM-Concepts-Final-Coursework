@@ -65,7 +65,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void btnPatientOnAction(ActionEvent event) {
-
+        navigateTo("/view/Patient.fxml");
     }
 
     @FXML
