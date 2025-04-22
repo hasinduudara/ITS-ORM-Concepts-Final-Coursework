@@ -49,6 +49,28 @@ public class TherapySessionController {
     @FXML
     private TextField txtTherapistID;
 
+    private static TherapySessionController instance;
+
+    public TherapySessionController() {
+        instance = this;
+    }
+
+    public static TherapySessionController getInstance() {
+        return instance;
+    }
+
+    public void setTherapistId(String therapistID) {
+        txtTherapistID.setText(therapistID);
+    }
+
+    public void setPatientId(String patientID) {
+        txtPatientID.setText(patientID);
+    }
+
+    public void setProgramId(String programID) {
+        txtProgramID.setText(programID);
+    }
+
     @FXML
     void btnAddPatientOnAction(ActionEvent event) {
 

@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="therapySessionPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-color: #3b3b3b; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.TherapySessionController">
    <children>
       <Label layoutX="20.0" layoutY="14.0" style="-fx-text-fill: #f3ff00;" text="Therapy Session">
@@ -79,7 +78,7 @@
             </Button>
          </children>
       </Pane>
-      <AnchorPane fx:id="miniPane" layoutX="425.0" layoutY="60.0" prefHeight="582.0" prefWidth="575.0" />
+      <AnchorPane fx:id="miniPane" layoutX="431.0" layoutY="63.0" prefHeight="575.0" prefWidth="575.0" style="-fx-border-color: #ffffff;" />
       <Button fx:id="btnSeeAllSessions" layoutX="132.0" layoutY="561.0" mnemonicParsing="false" onAction="#btnSeeAllSessionsOnAction" prefHeight="30.0" prefWidth="171.0" style="-fx-text-fill: #ffffff; -fx-background-color: #ff4600;" text="See All Sessions">
          <font>
             <Font name="System Bold" size="13.0" />

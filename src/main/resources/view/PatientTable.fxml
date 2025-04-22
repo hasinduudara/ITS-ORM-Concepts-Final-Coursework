@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="patientTablePage" prefHeight="575.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.PatientTableController">
+   <children>
+      <TableView fx:id="tblMiniPatient" onMouseClicked="#tblMiniPatientOnMouseClicked" prefHeight="575.0" prefWidth="575.0">
+        <columns>
+          <TableColumn fx:id="colPatientID" prefWidth="101.60003662109375" text="Patient ID" />
+          <TableColumn fx:id="colName" prefWidth="148.79998779296875" text="Name" />
+            <TableColumn fx:id="colPhoneNo" prefWidth="115.20001220703125" text="Phone No" />
+            <TableColumn fx:id="colGender" prefWidth="82.4000244140625" text="Gender" />
+            <TableColumn fx:id="colMedicalHistory" prefWidth="128.0" text="Medical History" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
