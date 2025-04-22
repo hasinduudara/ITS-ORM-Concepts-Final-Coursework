@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="therapySessionPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-color: #3b3b3b; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.TherapySessionController">
+   <children>
+      <Label layoutX="20.0" layoutY="14.0" style="-fx-text-fill: #f3ff00;" text="Therapy Session">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Pane layoutX="39.0" layoutY="136.0" prefHeight="371.0" prefWidth="358.0" style="-fx-border-color: #ffffff; -fx-border-radius: 20;">
+         <children>
+            <Label layoutX="23.0" layoutY="33.0" prefHeight="21.0" prefWidth="86.0" style="-fx-text-fill: #ffffff;" text="Session ID :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSessionID" layoutX="138.0" layoutY="29.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #ffffff; -fx-text-fill: #000000; -fx-background-radius: 5;" />
+            <Label layoutX="23.0" layoutY="77.0" prefHeight="21.0" prefWidth="107.0" style="-fx-text-fill: #ffffff;" text="Session Date :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="datePickerSessionDate" layoutX="138.0" layoutY="72.0" prefHeight="30.0" prefWidth="200.0" promptText="Pick Date" style="-fx-background-radius: 5;" />
+            <Label layoutX="23.0" layoutY="120.0" prefHeight="21.0" prefWidth="107.0" style="-fx-text-fill: #ffffff;" text="Session Time :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSessionTime" layoutX="138.0" layoutY="115.0" prefHeight="30.0" prefWidth="200.0" promptText="HH:MM" style="-fx-background-radius: 5;" />
+            <VBox layoutX="20.0" layoutY="166.0" prefHeight="130.0" prefWidth="319.0" spacing="10.0">
+               <children>
+                  <HBox prefHeight="36.0" prefWidth="320.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="btnAddPatient" mnemonicParsing="false" onAction="#btnAddPatientOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #006cff; -fx-text-fill: #ffffff;" text="Add Patient">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="txtPatientID" prefHeight="30.0" prefWidth="200.0" promptText="Patient ID" style="-fx-background-radius: 5;" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="36.0" prefWidth="320.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="btnAddProgram" mnemonicParsing="false" onAction="#btnAddProgramOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #c10075; -fx-text-fill: #ffffff;" text="Add Program">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="txtProgramID" prefHeight="30.0" prefWidth="200.0" promptText="Program ID" style="-fx-background-radius: 5;" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="36.0" prefWidth="320.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="btnAddTherapist" mnemonicParsing="false" onAction="#btnAddTherapistOnAction" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #008c3c; -fx-text-fill: #ffffff;" text="Add Therapist">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="txtTherapistID" prefHeight="30.0" prefWidth="200.0" promptText="Therapist ID" style="-fx-background-radius: 5;" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Button fx:id="btnCreateSession" layoutX="94.0" layoutY="314.0" mnemonicParsing="false" onAction="#btnCreateSessionOnAction" prefHeight="30.0" prefWidth="171.0" style="-fx-text-fill: #ffffff; -fx-background-color: #00b42e;" text="Create Session">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="miniPane" layoutX="425.0" layoutY="60.0" prefHeight="582.0" prefWidth="575.0" />
+      <Button fx:id="btnSeeAllSessions" layoutX="132.0" layoutY="561.0" mnemonicParsing="false" onAction="#btnSeeAllSessionsOnAction" prefHeight="30.0" prefWidth="171.0" style="-fx-text-fill: #ffffff; -fx-background-color: #ff4600;" text="See All Sessions">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

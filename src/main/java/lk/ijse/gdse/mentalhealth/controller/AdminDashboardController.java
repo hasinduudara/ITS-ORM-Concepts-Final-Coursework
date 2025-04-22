@@ -90,7 +90,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void btnTherapySessionOnAction(ActionEvent event) {
-
+        navigateTo("/view/TherapySession.fxml");
     }
 
     @Override
