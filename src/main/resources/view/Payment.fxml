@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="paymentPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-color: #343434; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.PaymentController">
+   <children>
+      <Label layoutX="20.0" layoutY="14.0" style="-fx-text-fill: #fbff00;" text="Payment">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Pane layoutX="36.0" layoutY="72.0" prefHeight="207.0" prefWidth="465.0" style="-fx-border-color: #ff8b00; -fx-border-radius: 20;">
+         <children>
+            <Label layoutX="14.0" layoutY="6.0" style="-fx-text-fill: #ff8b00;" text="Payment Details">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="44.0" style="-fx-text-fill: #ffffff;" text="Payment ID :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblPaymentID" layoutX="200.0" layoutY="40.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5; -fx-text-fill: #000000;" />
+            <Label layoutX="14.0" layoutY="82.0" style="-fx-text-fill: #ffffff;" text="Payment Amount :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPaymentAmount" layoutX="200.0" layoutY="78.0" prefHeight="30.0" prefWidth="250.0" promptText="0000.00" style="-fx-background-radius: 5;" />
+            <Label layoutX="14.0" layoutY="121.0" style="-fx-text-fill: #ffffff;" text="Payment Date :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="DatePickerPaymentDate" layoutX="200.0" layoutY="117.0" prefHeight="30.0" prefWidth="250.0" promptText="Pick Date" />
+            <Label layoutX="14.0" layoutY="162.0" style="-fx-text-fill: #ffffff;" text="Payment Status :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comBoxPaymentStatus" layoutX="200.0" layoutY="158.0" prefHeight="30.0" prefWidth="250.0" promptText="Payment Status" />
+         </children>
+      </Pane>
+      <Pane layoutX="588.0" layoutY="72.0" prefHeight="131.0" prefWidth="422.0" style="-fx-border-color: #00f7ff; -fx-border-radius: 20;">
+         <children>
+            <Label layoutX="14.0" layoutY="6.0" style="-fx-text-fill: #00f7ff;" text="Patient And Session Info">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="88.0" style="-fx-text-fill: #ffffff;" text="Session ID :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSessionID" layoutX="157.0" layoutY="84.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5; -fx-text-fill: #000000;" />
+            <Label layoutX="14.0" layoutY="46.0" style="-fx-text-fill: #ffffff;" text="Select Patient :">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comBoxSelectPatient" layoutX="157.0" layoutY="42.0" prefHeight="30.0" prefWidth="250.0" promptText="Select Patient" />
+         </children>
+      </Pane>
+      <Button fx:id="btnCompletePayment" layoutX="692.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnCompletePaymentOnAction" prefHeight="30.0" prefWidth="213.0" style="-fx-background-color: #00ad2d; -fx-text-fill: #ffffff;" text="Complete Payment">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tblPayment" layoutX="24.0" layoutY="311.0" onMouseClicked="#tblPaymentOnMouseClicked" prefHeight="364.0" prefWidth="998.0">
+        <columns>
+          <TableColumn fx:id="colPaymentID" prefWidth="121.60000610351562" text="Payment ID" />
+          <TableColumn fx:id="colAmount" prefWidth="176.0" text="Amount" />
+            <TableColumn fx:id="colDate" prefWidth="143.20001220703125" text="Date" />
+            <TableColumn fx:id="colStatus" prefWidth="170.4000244140625" text="Status" />
+            <TableColumn fx:id="colPatient" minWidth="1.60003662109375" prefWidth="228.00006103515625" text="Patient" />
+            <TableColumn fx:id="colSessionID" prefWidth="154.39990234375" text="Session ID" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

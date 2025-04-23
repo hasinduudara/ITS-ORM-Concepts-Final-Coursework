@@ -70,7 +70,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void btnPaymentOnAction(ActionEvent event) {
-
+        navigateTo("/view/Payment.fxml");
     }
 
     @FXML

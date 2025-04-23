@@ -30,9 +30,9 @@ public class Patient {
         this.medicalHistory = medicalHistory;
     }
 
-//    @OneToMany(mappedBy = "patient" , cascade = CascadeType.ALL)
-//    private List<TherapySession> therapySessions;
+    @OneToMany(mappedBy = "patient" , cascade = CascadeType.ALL)
+    private List<TherapySession> therapySessions;
 //
 //    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-//    private List<Payment> payments;
+//    private List<PaymentTM> payments;
 }

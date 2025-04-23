@@ -106,7 +106,10 @@ public class TherapyProgramDAOImpl implements TherapyProgramDAO {
     @Override
     public TherapyProgram findById(String id) {
         Session session = factoryConfiguration.getSession();
-        TherapyProgram therapyProgram = session.get(TherapyProgram.class, id);
-        return therapyProgram;
+        TherapyProgram program = session.get(TherapyProgram.class, id);
+        session.close();
+        return program;
     }
+
 }
+

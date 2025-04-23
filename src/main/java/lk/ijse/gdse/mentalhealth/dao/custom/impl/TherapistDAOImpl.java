@@ -26,6 +26,11 @@ public class TherapistDAOImpl implements TherapistDAO {
     }
 
     @Override
+    public Therapist findById(String therapistId) {
+        return null;
+    }
+
+    @Override
     public boolean save(Therapist entity) {
         Session session = factoryConfiguration.getSession();
         Transaction transaction = session.beginTransaction();

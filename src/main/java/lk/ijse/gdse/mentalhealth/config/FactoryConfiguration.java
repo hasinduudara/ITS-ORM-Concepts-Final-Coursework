@@ -1,9 +1,6 @@
 package lk.ijse.gdse.mentalhealth.config;
 
-import lk.ijse.gdse.mentalhealth.entity.Patient;
-import lk.ijse.gdse.mentalhealth.entity.Therapist;
-import lk.ijse.gdse.mentalhealth.entity.TherapyProgram;
-import lk.ijse.gdse.mentalhealth.entity.User;
+import lk.ijse.gdse.mentalhealth.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -28,6 +25,8 @@ public class FactoryConfiguration {
         configuration.addAnnotatedClass(Therapist.class);
         configuration.addAnnotatedClass(TherapyProgram.class);
         configuration.addAnnotatedClass(Patient.class);
+        configuration.addAnnotatedClass(TherapySession.class);
+        configuration.addAnnotatedClass(Payment.class);
 
         sessionFactory = configuration.buildSessionFactory();
     }
