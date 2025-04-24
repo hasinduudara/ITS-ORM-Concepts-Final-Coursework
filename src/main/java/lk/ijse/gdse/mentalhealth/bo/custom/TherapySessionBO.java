@@ -1,6 +1,7 @@
 package lk.ijse.gdse.mentalhealth.bo.custom;
 
 import lk.ijse.gdse.mentalhealth.dto.TherapySessionDTO;
+import lk.ijse.gdse.mentalhealth.entity.Therapist;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -16,4 +17,7 @@ public interface TherapySessionBO {
     TherapySessionDTO getSessionByPatientName(String name);
 
     String getNaxtSessionID();
+
+    Therapist getTherapistById(String therapistId);
+
 }

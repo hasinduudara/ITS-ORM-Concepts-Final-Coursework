@@ -76,6 +76,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
+            <TextField fx:id="txtSessionID" layoutX="138.0" layoutY="29.0" prefHeight="30.0" prefWidth="200.0" promptText="S00-001" style="-fx-background-radius: 5;" />
          </children>
       </Pane>
       <AnchorPane fx:id="miniPane" layoutX="431.0" layoutY="63.0" prefHeight="575.0" prefWidth="575.0" style="-fx-border-color: #ffffff;" />

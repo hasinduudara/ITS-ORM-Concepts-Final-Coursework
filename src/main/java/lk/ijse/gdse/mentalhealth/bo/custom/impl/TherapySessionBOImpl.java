@@ -36,8 +36,8 @@ public class TherapySessionBOImpl implements TherapySessionBO {
 
         TherapySession session = new TherapySession();
         session.setSessionId(sessionId);
-        session.setSessionDate(String.valueOf(date));
-        session.setSessionTime(String.valueOf(time));
+        session.setSessionDate(date);
+        session.setSessionTime(time);
         session.setStatus("BOOKED");
         session.setPatient(patientDAO.findById(patientId));
         session.setTherapist(therapistDAO.findById(therapistId));
@@ -73,8 +73,8 @@ public class TherapySessionBOImpl implements TherapySessionBO {
                     session.getPatient().getId(),
                     session.getTherapist().getTherapistID(),
                     session.getTherapyProgram().getProgramId(),
-                    LocalDate.parse(session.getSessionDate()),
-                    LocalTime.parse(session.getSessionTime()),
+                    session.getSessionDate(),
+                    session.getSessionTime(),
                     session.getStatus()
             ));
         }
@@ -103,5 +103,10 @@ public class TherapySessionBOImpl implements TherapySessionBO {
     @Override
     public String getNaxtSessionID() {
         return sessionDAO.getNextId();
+    }
+
+    @Override
+    public Therapist getTherapistById(String therapistId) {
+        return therapistDAO.findById(therapistId);
     }
 }

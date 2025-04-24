@@ -15,6 +15,8 @@ public class TherapySessionDTO {
     private String sessionId;
     private LocalDate sessionDate;
     private LocalTime sessionTime;
+    //    private String sessionDate;
+//    private String sessionTime;
     private String status;
     private String patientId;
     private String programId;
@@ -26,4 +28,6 @@ public class TherapySessionDTO {
     public TherapySessionDTO(String sessionId, String id, String therapistID, String programId, String sessionDate, String sessionTime, String status) {
 
     }
+
 }
+

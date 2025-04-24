@@ -28,13 +28,6 @@ public class Therapist {
     @Column(nullable = false)
     private String availability;
 
-//    public <E> Therapist(String therapistID, String therapistName, String specialization, String availability, ArrayList<E> es, ArrayList<E> es1) {
-//        this.therapistID = therapistID;
-//        this.therapistName = therapistName;
-//        this.specialization = specialization;
-//        this.availability = availability;
-//    }
-
     @OneToMany(mappedBy = "therapist", cascade = CascadeType.ALL)
     private List<TherapistProgram> therapistPrograms;
 

@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -15,9 +18,9 @@ public class TherapySession {
     @Id
     private String sessionId;
 
-    private String sessionDate;
+    private LocalDate sessionDate;
 
-    private String sessionTime;
+    private LocalTime sessionTime;
 
     private String status;
 

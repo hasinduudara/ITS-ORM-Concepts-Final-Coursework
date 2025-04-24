@@ -4,14 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 
 public class TherapySessionTM {
     private String sessionId;
-    private String sessionDate;
-    private String sessionTime;
+    private LocalDate sessionDate;
+    private LocalTime sessionTime;
     private String status;
     private String patientId;
     private String programId;

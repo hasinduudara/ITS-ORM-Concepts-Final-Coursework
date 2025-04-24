@@ -10,6 +10,7 @@ import lk.ijse.gdse.mentalhealth.bo.custom.TherapySessionBO;
 import lk.ijse.gdse.mentalhealth.bo.custom.impl.TherapySessionBOImpl;
 import lk.ijse.gdse.mentalhealth.dao.custom.TherapySessionDAO;
 import lk.ijse.gdse.mentalhealth.dto.TherapySessionDTO;
+import lk.ijse.gdse.mentalhealth.entity.Therapist;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +24,9 @@ public class TherapySessionController implements Initializable {
 
     @FXML
     private Button btnAddPatient;
+
+    @FXML
+    private TextField txtSessionID;
 
     @FXML
     private Button btnAddProgram;
@@ -84,10 +88,12 @@ public class TherapySessionController implements Initializable {
 
     private final TherapySessionBO therapySessionBO = new TherapySessionBOImpl();
 
+    PaymentController paymentController = new PaymentController();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadUI("/view/PatientTable.fxml");
-        generateSessionID();
+//        generateSessionID();
     }
 
     private void generateSessionID() {
@@ -103,19 +109,19 @@ public class TherapySessionController implements Initializable {
     @FXML
     void btnAddPatientOnAction(ActionEvent event) {
         loadUI("/view/PatientTable.fxml");
-        clearFields();
+//        clearFields();
     }
 
     @FXML
     void btnAddProgramOnAction(ActionEvent event) {
         loadUI("/view/TherapyProgramTable.fxml");
-        clearFields();
+//        clearFields();
     }
 
     @FXML
     void btnAddTherapistOnAction(ActionEvent event) {
         loadUI("/view/TherapistTable.fxml");
-        clearFields();
+//        clearFields();
     }
 
     @FXML
@@ -139,10 +145,26 @@ public class TherapySessionController implements Initializable {
             showAlert("Error", "Failed to create session.", Alert.AlertType.ERROR);
             e.printStackTrace();
         }
+
+        System.out.println("Session ID: " + txtSessionID.getText());
+        System.out.println("Therapist ID: " + txtTherapistID.getText());
+        System.out.println("Program ID: " + txtProgramID.getText());
     }
 
     private void handlePaymentComplete(TherapySessionDTO sessionDTO) {
         try {
+            // Retrieve the therapist object (ensure this method fetches the therapist correctly)
+            Therapist therapist = therapySessionBO.getTherapistById(sessionDTO.getTherapistId());
+
+            if (therapist == null) {
+                showAlert("Error", "Therapist not found. Please check the Therapist ID.", Alert.AlertType.ERROR);
+                System.err.println("Therapist ID not found: " + sessionDTO.getTherapistId());
+                return;
+            }
+
+            // Update therapist availability if needed
+            therapist.setAvailability("Unavailable");
+
             boolean isBooked = therapySessionBO.bookSession(
                     sessionDTO.getSessionId(),
                     sessionDTO.getPatientId(),
@@ -159,7 +181,7 @@ public class TherapySessionController implements Initializable {
                 showAlert("Error", "Failed to book session.", Alert.AlertType.ERROR);
             }
         } catch (Exception e) {
-            showAlert("Error", "Failed to book session.", Alert.AlertType.ERROR);
+            showAlert("Error", "Error saving session: " + e.getMessage(), Alert.AlertType.ERROR);
             e.printStackTrace();
         }
     }
@@ -246,7 +268,8 @@ public class TherapySessionController implements Initializable {
     private TherapySessionDTO collectSessionData() {
         TherapySessionDTO sessionDTO = new TherapySessionDTO();
 
-        sessionDTO.setSessionId(lblSessionID.getText());
+//        sessionDTO.setSessionId(lblSessionID.getText());
+        sessionDTO.setSessionId(txtSessionID.getText());
         sessionDTO.setPatientId(txtPatientID.getText());
         sessionDTO.setProgramId(txtProgramID.getText());
         sessionDTO.setTherapistId(txtTherapistID.getText());
