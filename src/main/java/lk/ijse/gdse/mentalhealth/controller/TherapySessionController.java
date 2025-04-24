@@ -87,6 +87,17 @@ public class TherapySessionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadUI("/view/PatientTable.fxml");
+        generateSessionID();
+    }
+
+    private void generateSessionID() {
+        try {
+            String sessionId = therapySessionBO.getNaxtSessionID();
+            lblSessionID.setText(sessionId);
+        } catch (Exception e) {
+            showAlert("Error", "Failed to generate session ID.", Alert.AlertType.ERROR);
+            e.printStackTrace();
+        }
     }
 
     @FXML

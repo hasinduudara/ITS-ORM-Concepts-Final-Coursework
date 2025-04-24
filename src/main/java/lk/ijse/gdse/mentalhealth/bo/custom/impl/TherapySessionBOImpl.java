@@ -99,4 +99,9 @@ public class TherapySessionBOImpl implements TherapySessionBO {
             return null;
         }
     }
+
+    @Override
+    public String getNaxtSessionID() {
+        return sessionDAO.getNextId();
+    }
 }

@@ -14,4 +14,6 @@ public interface TherapySessionBO {
     ArrayList<TherapySessionDTO> loadAllSessions();
 
     TherapySessionDTO getSessionByPatientName(String name);
+
+    String getNaxtSessionID();
 }
