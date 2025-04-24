@@ -88,7 +88,7 @@ public class LoginPageController {
         if (role == Role.ADMIN) {
             loadUI("/view/AdminDashboard.fxml");
         } else if (role == Role.RECEPTIONIST) {
-//            loadUI("/view/ReceptionistDashboard.fxml");
+            loadUI("/view/ReceptionistDashboard.fxml");
         } else {
             showAlert("Error", "Unauthorized access!", Alert.AlertType.ERROR);
         }

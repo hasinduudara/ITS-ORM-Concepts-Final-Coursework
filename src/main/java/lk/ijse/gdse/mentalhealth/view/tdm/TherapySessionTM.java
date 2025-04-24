@@ -19,4 +19,14 @@ public class TherapySessionTM {
     private String patientId;
     private String programId;
     private String therapistId;
+
+    public TherapySessionTM(String sessionId, String patientId, String therapistId, String programId, LocalDate sessionDate, LocalTime sessionTime, String status) {
+        this.sessionId = sessionId;
+        this.patientId = patientId;
+        this.therapistId = therapistId;
+        this.programId = programId;
+        this.sessionDate = sessionDate;
+        this.sessionTime = sessionTime;
+        this.status = status;
+    }
 }

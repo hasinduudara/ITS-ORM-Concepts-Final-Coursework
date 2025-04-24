@@ -60,7 +60,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) {
-
+        loadUI("/view/LoginPage.fxml");
     }
 
     @FXML
