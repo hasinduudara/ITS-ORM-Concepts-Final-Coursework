@@ -27,6 +27,9 @@ public class TherapistManagementController implements Initializable {
     private AnchorPane AnchorPaneTherapistManagement;
 
     @FXML
+    private TextField txtTherapistID;
+
+    @FXML
     private Button btnClear;
 
     @FXML
@@ -54,7 +57,7 @@ public class TherapistManagementController implements Initializable {
     private Label lblTherapistID;
 
     @FXML
-    private TableView<Object> tblTherapistManagement;
+    private TableView<TherapistTM> tblTherapistManagement;
 
     @FXML
     private TextField textName;
@@ -106,7 +109,8 @@ public class TherapistManagementController implements Initializable {
         String name = textName.getText();
         String specialty = textSpecialty.getText();
         String availability = txtAvailability.getText();
-        String id = lblTherapistID.getText();
+//        String id = lblTherapistID.getText();
+        String id = txtTherapistID.getText();
 
         if (name.isEmpty() || specialty.isEmpty() || availability.isEmpty()) {
             showAlert("Error", "Please fill all fields!", Alert.AlertType.ERROR);
@@ -134,7 +138,8 @@ public class TherapistManagementController implements Initializable {
         String name = textName.getText();
         String specialty = textSpecialty.getText();
         String availability = txtAvailability.getText();
-        String id = lblTherapistID.getText();
+//        String id = lblTherapistID.getText();
+        String id = txtTherapistID.getText();
 
         if (name.isEmpty() || specialty.isEmpty() || availability.isEmpty()) {
             showAlert("Error", "Please fill all fields!", Alert.AlertType.ERROR);
@@ -161,7 +166,8 @@ public class TherapistManagementController implements Initializable {
     void tblTherapistManagementOnMouseClicked(MouseEvent event) {
         TherapistTM selectedTherapist = (TherapistTM) tblTherapistManagement.getSelectionModel().getSelectedItem();
         if (selectedTherapist != null) {
-            lblTherapistID.setText(selectedTherapist.getTherapistID());
+//            lblTherapistID.setText(selectedTherapist.getTherapistID());
+            txtTherapistID.setText(selectedTherapist.getTherapistID());
             textName.setText(selectedTherapist.getTherapistName());
             textSpecialty.setText(selectedTherapist.getSpecialization());
             txtAvailability.setText(selectedTherapist.getAvailability());
@@ -182,13 +188,14 @@ public class TherapistManagementController implements Initializable {
     }
 
     private void generateNewId() {
-        lblTherapistID.setText(therapistBO.getNaxtTherapistID());
+//        lblTherapistID.setText(therapistBO.getNaxtTherapistID());
+        txtTherapistID.setText(lblTherapistID.getText());
     }
 
     private void loadTherapists() {
         try {
             ArrayList<TherapistDTO> therapists = therapistBO.loadAllTherapists();
-            ObservableList<Object> therapistTMList = FXCollections.observableArrayList();
+            ObservableList<TherapistTM> therapistTMList = FXCollections.observableArrayList();
 
             for (TherapistDTO therapistDTO : therapists) {
                 TherapistTM therapistTM = new TherapistTM(

@@ -15,9 +15,12 @@ public class TherapistBOImpl implements TherapistBO {
     @Override
     public boolean saveTherapist(TherapistDTO therapistDTO) {
         return therapistDAO.save(
-                new Therapist(therapistDTO.getTherapistID(), therapistDTO.getTherapistName(),
-                        therapistDTO.getSpecialization(), therapistDTO.getAvailability(),
-                        new ArrayList<>(), new ArrayList<>())
+                new Therapist(therapistDTO.getTherapistID(),
+                        therapistDTO.getTherapistName(),
+                        therapistDTO.getSpecialization(),
+                        therapistDTO.getAvailability(),
+                        new ArrayList<>(),
+                        new ArrayList<>())
         );
     }
 
