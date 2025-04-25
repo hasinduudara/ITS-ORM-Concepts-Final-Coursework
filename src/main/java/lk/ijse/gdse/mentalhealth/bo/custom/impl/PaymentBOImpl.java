@@ -20,21 +20,6 @@ public class PaymentBOImpl implements PaymentBO {
     private final TherapySessionDAO therapySessionDAO = new TherapySessionDAOImpl();
     private final PatientDAO patientDAO = new PatientDAOImpl();
 
-//    @Override
-//    public boolean savePayment(PaymentDTO paymentDTO) {
-//        Patient patient = patientDAO.findById(paymentDTO.getPatientId());
-//        TherapySession session = therapySessionDAO.findById(paymentDTO.getSessionId());
-//
-//        return paymentDAO.save(new PaymentDTO(
-//                paymentDTO.getPaymentId(),
-//                paymentDTO.getAmount(),
-//                paymentDTO.getPaymentDate(),
-//                paymentDTO.getStatus(),
-//                patient,
-//                session
-//        ));
-//    }
-
     @Override
     public boolean savePayment(PaymentDTO paymentDTO) {
         Patient patient = patientDAO.findById(paymentDTO.getPatientId());
@@ -85,5 +70,29 @@ public class PaymentBOImpl implements PaymentBO {
             e.printStackTrace();
         }
         return paymentDTOList;
+    }
+
+    @Override
+    public long getCompletedPaymentCount() {
+        try {
+            return paymentDAO.getAll().stream()
+                    .filter(payment -> "completed".equalsIgnoreCase(payment.getStatus()))
+                    .count();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    @Override
+    public long getPendingPaymentCount() {
+        try {
+            return paymentDAO.getAll().stream()
+                    .filter(payment -> "pending".equalsIgnoreCase(payment.getStatus()))
+                    .count();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 }

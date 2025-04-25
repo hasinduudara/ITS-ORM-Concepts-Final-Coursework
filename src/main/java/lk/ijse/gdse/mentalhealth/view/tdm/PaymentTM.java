@@ -15,4 +15,10 @@ public class PaymentTM {
     private String status;
     private String patientId;
     private String sessionId;
+
+    public PaymentTM(String paymentId, double amount, String status) {
+        this.paymentId = paymentId;
+        this.amount = amount;
+        this.status = status;
+    }
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="financeReportPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.FinancialReportController">
+   <children>
+      <TabPane layoutX="23.0" layoutY="16.0" prefHeight="670.0" prefWidth="1000.0">
+         <tabs>
+            <Tab text="Financial Report">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <TableView fx:id="tblPayments" prefHeight="300" prefWidth="1000.0">
+                           <columns>
+                              <TableColumn fx:id="colPaymentId" prefWidth="250" text="Payment ID" />
+                              <TableColumn fx:id="colAmount" prefWidth="394.39996337890625" text="Amount" />
+                              <TableColumn fx:id="colStatus" prefWidth="353.5999755859375" text="Status" />
+                           </columns>
+                        </TableView>
+                        <BarChart fx:id="barChartPayments" layoutX="60.0" layoutY="320" prefHeight="287.0" prefWidth="941.0">
+                           <xAxis>
+                              <CategoryAxis label="Payment Status" prefWidth="919.0" tickLabelFill="WHITE" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis label="Count" tickLabelFill="WHITE" />
+                           </yAxis>
+                        </BarChart>
+                        <Label layoutX="445.0" layoutY="589.0" style="-fx-text-fill: #ffffff;" text="Payment Status">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="446.0" style="-fx-text-fill: #ffffff; -fx-rotate: 270;" text="Count">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

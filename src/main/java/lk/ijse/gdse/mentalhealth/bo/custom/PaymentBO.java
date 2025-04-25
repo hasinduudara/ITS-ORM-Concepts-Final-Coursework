@@ -12,4 +12,7 @@ public interface PaymentBO {
 
     ArrayList<PaymentDTO> loadAllPayments();
 
+    long getCompletedPaymentCount();
+
+    long getPendingPaymentCount();
 }

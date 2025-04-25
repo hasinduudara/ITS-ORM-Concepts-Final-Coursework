@@ -64,6 +64,9 @@ public class PaymentController implements Initializable {
     private Label lblSessionID;
 
     @FXML
+    private TextField txtSessionID;
+
+    @FXML
     private AnchorPane paymentPage;
 
     @FXML
@@ -85,7 +88,8 @@ public class PaymentController implements Initializable {
     }
 
     public void setSessionId(String sessionId) {
-        this.lblSessionID.setText(sessionId);
+//        this.lblSessionID.setText(sessionId);
+        this.txtSessionID.setText(sessionId);
     }
 
     private TherapySessionController parentController;
@@ -178,7 +182,8 @@ public class PaymentController implements Initializable {
 
     public boolean savePaymentWithSession() {
         String paymentId = lblPaymentID.getText();
-        String sessionId = lblSessionID.getText();
+//        String sessionId = lblSessionID.getText();
+        String sessionId = txtSessionID.getText();
         String paymentDate = DatePickerPaymentDate.getValue().toString();
         double amount = Double.parseDouble(txtPaymentAmount.getText());
         String status = comBoxPaymentStatus.getValue();

@@ -27,6 +27,13 @@ public class TherapySessionBOImpl implements TherapySessionBO {
 
     @Override
     public boolean bookSession(String sessionId, String patientId, String therapistId, String programId, LocalDate date, LocalTime time) {
+        // First verify therapist exists
+//        Therapist therapist = therapistDAO.findById(therapistId);
+//        if (therapist == null) {
+//            System.out.println("Therapist not found with ID: " + therapistId);
+//            return false;
+//        }
+
         // Check for conflicts
         List<TherapySession> existing = sessionDAO.findByTherapistAndTime(therapistId, date, time);
         if (!existing.isEmpty()) {

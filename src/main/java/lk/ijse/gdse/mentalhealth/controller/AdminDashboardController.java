@@ -75,7 +75,7 @@ public class AdminDashboardController implements Initializable {
 
     @FXML
     void btnReportingOnAction(ActionEvent event) {
-
+        navigateTo("/view/FinancialReport.fxml");
     }
 
     @FXML

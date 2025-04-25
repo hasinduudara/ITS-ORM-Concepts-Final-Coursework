@@ -95,7 +95,7 @@ public class TherapySessionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadUI("/view/PatientTable.fxml");
-        generateNewId();
+//        generateNewId();
     }
 
 
