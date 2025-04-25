@@ -16,12 +16,22 @@ import java.util.List;
 public class TherapySessionDAOImpl implements TherapySessionDAO {
     private final FactoryConfiguration factoryConfiguration = new FactoryConfiguration();
 
+//    @Override
+//    public TherapySession findById(String sessionId) {
+//        Session session = factoryConfiguration.getSession();
+//        Transaction transaction = (Transaction) session.get(TherapySession.class, sessionId);
+//        session.close();
+//        return (TherapySession) transaction;
+//    }
+
     @Override
     public TherapySession findById(String sessionId) {
         Session session = factoryConfiguration.getSession();
-        Transaction transaction = (Transaction) session.get(TherapySession.class, sessionId);
+        Transaction transaction = session.beginTransaction();
+        TherapySession therapySession = session.get(TherapySession.class, sessionId);
+        transaction.commit();
         session.close();
-        return (TherapySession) transaction;
+        return therapySession;
     }
 
     @Override
