@@ -80,7 +80,7 @@ public class TherapistTableController implements Initializable {
         if (selectedItem == null) {
             showAlert("Warning", "Please select a therapist!", Alert.AlertType.WARNING);
         } else {
-            TherapySessionController.getInstance().setTherapistId(selectedItem.getTherapistID());
+            TherapySessionController.getInstance().setTherapistID(selectedItem.getTherapistID());
         }
     }
 
