@@ -12,6 +12,29 @@ import java.util.List;
 public class PaymetDAOImpl implements PaymentDAO {
     private final FactoryConfiguration factoryConfiguration = new FactoryConfiguration();
 
+//    @Override
+//    public boolean save(Payment entity) {
+//        Session session = factoryConfiguration.getSession();
+//        Transaction transaction = session.beginTransaction();
+//
+//        try {
+//            Payment existingPayment = session.get(Payment.class, entity.getPaymentId());
+//            if (existingPayment != null) {
+//                throw new RuntimeException("Payment ID already exists");
+//            }
+//            session.persist(entity);
+//            transaction.commit();
+//            return true;
+//        } catch (Exception e) {
+//            transaction.rollback();
+//            throw new RuntimeException(e);
+//        } finally {
+//            if (session != null) {
+//                session.close();
+//            }
+//        }
+//    }
+
     @Override
     public boolean save(Payment entity) {
         Session session = factoryConfiguration.getSession();
