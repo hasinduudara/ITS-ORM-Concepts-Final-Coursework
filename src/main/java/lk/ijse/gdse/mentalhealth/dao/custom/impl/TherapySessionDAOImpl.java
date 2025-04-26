@@ -75,7 +75,11 @@ public class TherapySessionDAOImpl implements TherapySessionDAO {
     public boolean save(TherapySession entity) {
         Session session = factoryConfiguration.getSession();
         Transaction transaction = session.beginTransaction();
-        session.saveOrUpdate(entity);
+        try {
+            session.saveOrUpdate(entity);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         transaction.commit();
         session.close();
         return true;
@@ -94,7 +98,7 @@ public class TherapySessionDAOImpl implements TherapySessionDAO {
     @Override
     public List<TherapySession> getAll() {
         Session session = factoryConfiguration.getSession();
-        Query<TherapySession> query = session.createQuery("FROM TherapySession", TherapySession.class);
+        Query<TherapySession> query = session.createQuery("FROM TherapySession ", TherapySession.class);
         ArrayList<TherapySession> sessions = (ArrayList<TherapySession>) query.list();
         return sessions;
     }

@@ -226,7 +226,7 @@ public class TherapySessionController implements Initializable {
             therapySessionPage.getChildren().clear();
             therapySessionPage.getChildren().add(paymentPane);
 
-            paymentController.savePaymentWithSession();
+//            paymentController.savePaymentWithSession();
 
         } catch (IOException e) {
             showAlert("Error", "Failed to load payment form!", Alert.AlertType.ERROR);
@@ -276,7 +276,7 @@ public class TherapySessionController implements Initializable {
     void btnSeeAllSessionsOnAction(ActionEvent event) {
         try {
             AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/TherapySessionTable.fxml")));
-            miniPane.getChildren().setAll(pane);
+            therapySessionPage.getChildren().setAll(pane);
         } catch (IOException e) {
             showAlert("Error", "Failed to load session list!", Alert.AlertType.ERROR);
             e.printStackTrace();

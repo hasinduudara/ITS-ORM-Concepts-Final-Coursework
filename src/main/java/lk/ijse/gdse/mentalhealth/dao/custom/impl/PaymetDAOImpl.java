@@ -26,6 +26,7 @@ public class PaymetDAOImpl implements PaymentDAO {
             transaction.commit();
             return true;
         } catch (Exception e) {
+            System.out.println(e);
             transaction.rollback();
             throw new RuntimeException(e);
         } finally {

@@ -50,6 +50,7 @@ public class TherapySessionBOImpl implements TherapySessionBO {
         session.setTherapist(therapistDAO.findById(therapistId));
         TherapyProgram therapyProgram = therapyProgramDAO.findById(programId);
         session.setTherapyProgram(therapyProgram);
+        System.out.println(" ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo " + therapistDAO.findById(therapistId));
 
         boolean sessionSaved = sessionDAO.save(session);
         if (!sessionSaved) {
@@ -57,9 +58,9 @@ public class TherapySessionBOImpl implements TherapySessionBO {
             return false;
         }
 
-        Therapist therapist = session.getTherapist();
-        therapist.setAvailability("BUSY");
-        therapistDAO.update(therapist);
+//        Therapist therapist = session.getTherapist();
+//        therapist.setAvailability("BUSY");
+//        therapistDAO.update(therapist);
 
         return true;
     }
@@ -74,15 +75,22 @@ public class TherapySessionBOImpl implements TherapySessionBO {
         ArrayList<TherapySessionDTO> sessionDTOS = new ArrayList<>();
         ArrayList<TherapySession> sessions = (ArrayList<TherapySession>) sessionDAO.getAll();
 
+        if (sessions == null || sessions.isEmpty()) {
+            System.out.println("No therapy sessions found.");
+            return sessionDTOS;
+        }
+
         for (TherapySession session : sessions) {
+            String therapistID = (session.getTherapist() != null) ? session.getTherapist().getTherapistID() : "N/A";
+
             sessionDTOS.add(new TherapySessionDTO(
                     session.getSessionId(),
-                    session.getPatient().getId(),
-                    session.getTherapist().getTherapistID(),
-                    session.getTherapyProgram().getProgramId(),
                     session.getSessionDate(),
                     session.getSessionTime(),
-                    session.getStatus()
+                    session.getStatus(),
+                    session.getPatient().getId(),
+                    session.getTherapyProgram().getProgramId(),
+                    therapistID
             ));
         }
         return sessionDTOS;

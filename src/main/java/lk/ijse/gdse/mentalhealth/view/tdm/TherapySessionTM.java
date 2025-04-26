@@ -1,8 +1,6 @@
 package lk.ijse.gdse.mentalhealth.view.tdm;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -20,13 +18,4 @@ public class TherapySessionTM {
     private String programId;
     private String therapistId;
 
-    public TherapySessionTM(String sessionId, String patientId, String therapistId, String programId, LocalDate sessionDate, LocalTime sessionTime, String status) {
-        this.sessionId = sessionId;
-        this.patientId = patientId;
-        this.therapistId = therapistId;
-        this.programId = programId;
-        this.sessionDate = sessionDate;
-        this.sessionTime = sessionTime;
-        this.status = status;
-    }
 }

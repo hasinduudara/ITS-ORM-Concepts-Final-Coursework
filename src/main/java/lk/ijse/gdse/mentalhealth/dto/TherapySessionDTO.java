@@ -3,6 +3,7 @@ package lk.ijse.gdse.mentalhealth.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -10,7 +11,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
+@ToString
 public class TherapySessionDTO {
     private String sessionId;
     private LocalDate sessionDate;

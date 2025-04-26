@@ -1,6 +1,7 @@
 package lk.ijse.gdse.mentalhealth.controller;
 
 import javafx.collections.FXCollections;
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.gdse.mentalhealth.bo.custom.TherapySessionBO;
 import lk.ijse.gdse.mentalhealth.bo.custom.impl.TherapySessionBOImpl;
@@ -19,78 +22,97 @@ import lk.ijse.gdse.mentalhealth.view.tdm.TherapySessionTM;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class TherapySessionTableController implements Initializable {
 
     @FXML
-    private AnchorPane allTherapySessionPage;
-
-    @FXML
     private Button btnBack;
 
     @FXML
-    private TableColumn<TherapySessionTM, String> colDate;
+    private TableColumn<TherapySessionTM, LocalDate> clmDate;
 
     @FXML
-    private TableColumn<TherapySessionTM, String> colPatientID;
+    private TableColumn<TherapySessionTM, String> clmPatientId;
 
     @FXML
-    private TableColumn<TherapySessionTM, String> colProgramID;
+    private TableColumn<TherapySessionTM, String> clmProgramId;
 
     @FXML
-    private TableColumn<TherapySessionTM, String> colSessionID;
+    private TableColumn<TherapySessionTM, String> clmSessionId;
 
     @FXML
-    private TableColumn<TherapySessionTM, String> colStatus;
+    private TableColumn<TherapySessionTM, String> clmStatus;
 
     @FXML
-    private TableColumn<TherapySessionTM, String> colTherapistID;
+    private TableColumn<TherapySessionTM, String> clmTherapistId;
 
     @FXML
-    private TableColumn<TherapySessionTM, String> colTime;
+    private TableColumn<TherapySessionTM, LocalTime> clmTime;
 
     @FXML
-    private TableView<TherapySessionTM> tblAllTherapySession;
+    private AnchorPane recordPane;
+
+    @FXML
+    private TableView<TherapySessionTM> tblTherapySession;
 
     private final TherapySessionBO therapySessionBO = new TherapySessionBOImpl();
 
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        allTherapySessionPage.getChildren().clear();
-        allTherapySessionPage.getChildren().add(FXMLLoader.load(getClass().getResource("/view/TherapySession.fxml")));
-    }
-
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        colSessionID.setCellValueFactory(new PropertyValueFactory<>("sessionID"));
-        colPatientID.setCellValueFactory(new PropertyValueFactory<>("patientID"));
-        colTherapistID.setCellValueFactory(new PropertyValueFactory<>("therapistID"));
-        colProgramID.setCellValueFactory(new PropertyValueFactory<>("programID"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
-        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+    public void initialize(URL location, ResourceBundle resources) {
+        clmSessionId.setCellValueFactory(new PropertyValueFactory<>("sessionId"));
+        clmDate.setCellValueFactory(new PropertyValueFactory<>("sessionDate"));
+        clmTime.setCellValueFactory(new PropertyValueFactory<>("sessionTime"));
+        clmStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        clmPatientId.setCellValueFactory(new PropertyValueFactory<>("patientId"));
+        clmProgramId.setCellValueFactory(new PropertyValueFactory<>("programId"));
+        clmTherapistId.setCellValueFactory(new PropertyValueFactory<>("therapistId"));
 
-        loadSession();
+        loadSessions();
     }
 
-    private void loadSession() {
-        ArrayList<TherapySessionDTO> sessions = therapySessionBO.loadAllSessions();
+    private void loadSessions() {
+        ArrayList<TherapySessionDTO> sessions =  therapySessionBO.loadAllSessions();
         ObservableList<TherapySessionTM> sessionTMS = FXCollections.observableArrayList();
 
-        for (TherapySessionDTO session : sessions) {
+        for (TherapySessionDTO dto : sessions) {
+
             TherapySessionTM sessionTM = new TherapySessionTM(
-                    session.getSessionId(),
-                    session.getPatientId(),
-                    session.getTherapistId(),
-                    session.getProgramId(),
-                    session.getSessionDate(),
-                    session.getSessionTime(),
-                    session.getStatus()
+                    dto.getSessionId(),
+                    dto.getSessionDate(),
+                    dto.getSessionTime(),
+                    dto.getStatus(),
+                    dto.getPatientId(),
+                    dto.getProgramId(),
+                    dto.getTherapistId()
+
             );
+
             sessionTMS.add(sessionTM);
         }
-        tblAllTherapySession.setItems(sessionTMS);
+        tblTherapySession.setItems(sessionTMS);
     }
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/TherapySession.fxml")));
+            recordPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            showAlert("Error", "Failed to load session list!", Alert.AlertType.ERROR);
+            e.printStackTrace();
+        }
+    }
+
+    private void showAlert(String title, String message, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 }

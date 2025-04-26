@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="allTherapySessionPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-color: #343434; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.TherapySessionTableController">
+<AnchorPane fx:id="recordPane" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-color: #343434; -fx-background-radius: 30; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.TherapySessionTableController">
    <children>
       <Label layoutX="20.0" layoutY="14.0" style="-fx-text-fill: #fbff00;" text="All Therapy Sessions">
          <font>
@@ -20,15 +19,15 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <TableView fx:id="tblAllTherapySession" layoutX="44.0" layoutY="73.0" prefHeight="600.0" prefWidth="958.0">
+      <TableView fx:id="tblTherapySession" layoutX="44.0" layoutY="73.0" prefHeight="600.0" prefWidth="958.0">
         <columns>
-          <TableColumn fx:id="colSessionID" prefWidth="179.99994659423828" text="Session ID" />
-          <TableColumn fx:id="colDate" prefWidth="140.79998779296875" text="Date" />
-            <TableColumn fx:id="colTime" prefWidth="132.800048828125" text="Time" />
-            <TableColumn fx:id="colStatus" prefWidth="247.20004272460938" text="Status" />
-            <TableColumn fx:id="colPatientID" prefWidth="253.60009765625" text="Patient ID" />
-            <TableColumn fx:id="colProgramID" prefWidth="251.99993896484375" text="Program ID" />
-            <TableColumn fx:id="colTherapistID" prefWidth="215.199951171875" text="Therapist ID" />
+          <TableColumn fx:id="clmSessionId" prefWidth="127.19999313354492" text="Session ID" />
+          <TableColumn fx:id="clmDate" prefWidth="100.00001525878906" text="Date" />
+            <TableColumn fx:id="clmTime" minWidth="0.0" prefWidth="66.39997863769531" text="Time" />
+            <TableColumn fx:id="clmStatus" prefWidth="100.80007934570312" text="Status" />
+            <TableColumn fx:id="clmPatientId" prefWidth="171.46661376953125" text="Patient ID" />
+            <TableColumn fx:id="clmProgramId" minWidth="-1.0" prefWidth="192.0" text="Program ID" />
+            <TableColumn fx:id="clmTherapistId" prefWidth="203.73342895507812" text="Therapist ID" />
         </columns>
       </TableView>
    </children>

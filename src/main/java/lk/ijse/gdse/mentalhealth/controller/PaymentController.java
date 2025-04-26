@@ -20,6 +20,7 @@ import lk.ijse.gdse.mentalhealth.entity.Patient;
 import lk.ijse.gdse.mentalhealth.view.tdm.PaymentTM;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -184,7 +185,8 @@ public class PaymentController implements Initializable {
         String paymentId = lblPaymentID.getText();
 //        String sessionId = lblSessionID.getText();
         String sessionId = txtSessionID.getText();
-        String paymentDate = DatePickerPaymentDate.getValue().toString();
+        LocalDate dateOfPayment = DatePickerPaymentDate.getValue();
+        String paymentDate = String.valueOf(dateOfPayment);
         double amount = Double.parseDouble(txtPaymentAmount.getText());
         String status = comBoxPaymentStatus.getValue();
         String selecteName = comBoxSelectPatient.getValue();
@@ -212,6 +214,7 @@ public class PaymentController implements Initializable {
         if (isPaymentSaved) {
             showAlert("Success", "Payment saved successfully!", Alert.AlertType.INFORMATION);
             if (parentController != null) {
+                loadPayments();
                 parentController.onPaymentCompleted();
             }
             return true;
