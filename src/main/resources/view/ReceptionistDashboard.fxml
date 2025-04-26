@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="receptionistDashbordPage" prefHeight="750.0" prefWidth="1500.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.ReceptionistDashboardController">
    <children>
       <Pane layoutX="32.0" layoutY="121.0" prefHeight="387.0" prefWidth="339.0" style="-fx-border-color: #ffffff; -fx-border-radius: 30;">
@@ -54,5 +53,15 @@
          </font>
       </Button>
       <AnchorPane fx:id="AnchorPaneReceptionistDashboard" layoutX="420.0" layoutY="24.0" prefHeight="702.0" prefWidth="1047.0" style="-fx-border-color: #ffffff; -fx-background-radius: 30; -fx-border-radius: 30;" />
+      <Label fx:id="lblAdminDashboardTime" layoutX="118.0" layoutY="24.0" prefHeight="36.0" prefWidth="168.0" style="-fx-text-fill: #ffffff;">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAdminDashboardDate" layoutX="126.0" layoutY="60.0" prefHeight="36.0" prefWidth="168.0" style="-fx-text-fill: #ffffff;">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

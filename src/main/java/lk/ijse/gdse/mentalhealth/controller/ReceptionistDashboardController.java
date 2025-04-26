@@ -1,15 +1,22 @@
 package lk.ijse.gdse.mentalhealth.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -35,6 +42,12 @@ public class ReceptionistDashboardController implements Initializable {
 
     @FXML
     private AnchorPane receptionistDashbordPage;
+
+    @FXML
+    private Label lblAdminDashboardDate;
+
+    @FXML
+    private Label lblAdminDashboardTime;
 
     @FXML
     void btnLogOutOnAction(ActionEvent event) {
@@ -65,6 +78,7 @@ public class ReceptionistDashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadUI("/view/Patient.fxml");
+        startClock();
     }
 
     private void loadUI(String resource) {
@@ -96,6 +110,18 @@ public class ReceptionistDashboardController implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Failed to load page!").show();
         }
+    }
+
+    private void startClock() {
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+            lblAdminDashboardTime.setText(LocalTime.now().format(timeFormatter));
+
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+            lblAdminDashboardDate.setText(LocalDate.now().format(dateFormatter));
+        }), new KeyFrame(Duration.seconds(1)));
+        clock.setCycleCount(Timeline.INDEFINITE);
+        clock.play();
     }
 
 }

@@ -1,5 +1,7 @@
 package lk.ijse.gdse.mentalhealth.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +10,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class AdminDashboardController implements Initializable {
@@ -96,6 +102,7 @@ public class AdminDashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         navigateTo("/view/TherapistManagement.fxml");
+        startClock();
     }
 
     public void navigateTo(String fxmlPath) {
@@ -127,6 +134,18 @@ public class AdminDashboardController implements Initializable {
         } catch (IOException e) {
             showAlert("Error", "Failed to load dashboard!", Alert.AlertType.ERROR);
         }
+    }
+
+    private void startClock() {
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+            lblAdminDashboardTime.setText(LocalTime.now().format(timeFormatter));
+
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+            lblAdminDashboardDate.setText(LocalDate.now().format(dateFormatter));
+        }), new KeyFrame(Duration.seconds(1)));
+        clock.setCycleCount(Timeline.INDEFINITE);
+        clock.play();
     }
 
 }
