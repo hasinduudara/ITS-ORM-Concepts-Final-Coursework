@@ -53,7 +53,8 @@ public class ReceptionistDashboardController implements Initializable {
 
     @FXML
     void btnReportingOnAction(ActionEvent event) {
-        navigateTo("/view/FinancialReport.fxml");
+//        navigateTo("/view/FinancialReport.fxml");
+        loadUI("/view/FinancialReport.fxml");
     }
 
     @FXML
