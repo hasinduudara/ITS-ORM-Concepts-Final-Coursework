@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="loginPage" prefHeight="750.0" prefWidth="1500.0" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.LoginPageController">
+<AnchorPane fx:id="loginPage" prefHeight="750.0" prefWidth="1500.0" style="-fx-background-color: #00b682;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.LoginPageController">
    <children>
       <ImageView fitHeight="606.0" fitWidth="584.0" layoutX="871.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
          <image>

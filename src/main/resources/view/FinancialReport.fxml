@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="financeReportPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.FinancialReportController">
+<AnchorPane fx:id="financeReportPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-radius: 30; -fx-background-color: #007b5d;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.FinancialReportController">
    <children>
       <TabPane layoutX="23.0" layoutY="16.0" prefHeight="670.0" prefWidth="1000.0">
          <tabs>

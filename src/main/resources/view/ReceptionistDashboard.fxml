@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="receptionistDashbordPage" prefHeight="750.0" prefWidth="1500.0" style="-fx-background-color: #343434;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.ReceptionistDashboardController">
+<AnchorPane fx:id="receptionistDashbordPage" prefHeight="750.0" prefWidth="1500.0" style="-fx-background-color: #00b682;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.ReceptionistDashboardController">
    <children>
       <Pane layoutX="32.0" layoutY="121.0" prefHeight="387.0" prefWidth="339.0" style="-fx-border-color: #ffffff; -fx-border-radius: 30;">
          <children>
@@ -16,29 +16,29 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="111.0" layoutY="71.0" style="-fx-text-fill: #ffffff;" text="Admin Receptionist">
+            <Label layoutX="100.0" layoutY="71.0" style="-fx-text-fill: #ffffff;" text="Admin Receptionist">
                <font>
-                  <Font name="System Italic" size="15.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
             <VBox layoutX="44.0" layoutY="112.0" prefHeight="239.0" prefWidth="251.0" spacing="30.0">
                <children>
-                  <Button fx:id="btnPatient" mnemonicParsing="false" onAction="#btnPatientOnAction" prefHeight="36.0" prefWidth="249.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="Patient">
+                  <Button fx:id="btnPatient" mnemonicParsing="false" onAction="#btnPatientOnAction" prefHeight="36.0" prefWidth="249.0" style="-fx-background-color: #000000; -fx-background-radius: 15; -fx-text-fill: #ffffff;" text="Patient">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnTherapySession" mnemonicParsing="false" onAction="#btnTherapySessionOnAction" prefHeight="36.0" prefWidth="249.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="Therapy Session">
+                  <Button fx:id="btnTherapySession" mnemonicParsing="false" onAction="#btnTherapySessionOnAction" prefHeight="36.0" prefWidth="249.0" style="-fx-background-color: #000000; -fx-background-radius: 15; -fx-text-fill: #ffffff;" text="Therapy Session">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnPayment" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="36.0" prefWidth="249.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="Payment">
+                  <Button fx:id="btnPayment" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="36.0" prefWidth="249.0" style="-fx-background-color: #000000; -fx-background-radius: 15; -fx-text-fill: #ffffff;" text="Payment">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnReporting" mnemonicParsing="false" onAction="#btnReportingOnAction" prefHeight="36.0" prefWidth="249.0" style="-fx-background-color: #ffffff; -fx-background-radius: 15;" text="Reporting">
+                  <Button fx:id="btnReporting" mnemonicParsing="false" onAction="#btnReportingOnAction" prefHeight="36.0" prefWidth="249.0" style="-fx-background-color: #000000; -fx-background-radius: 15; -fx-text-fill: #ffffff;" text="Reporting">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -47,7 +47,7 @@
             </VBox>
          </children>
       </Pane>
-      <Button fx:id="btnLogOut" layoutX="122.0" layoutY="536.0" mnemonicParsing="false" onAction="#btnLogOutOnAction" prefHeight="36.0" prefWidth="158.0" style="-fx-background-color: #ff5656; -fx-background-radius: 15; -fx-text-fill: #ffffff;" text="Log Out">
+      <Button fx:id="btnLogOut" layoutX="122.0" layoutY="536.0" mnemonicParsing="false" onAction="#btnLogOutOnAction" prefHeight="36.0" prefWidth="158.0" style="-fx-background-color: #fc3434; -fx-background-radius: 15; -fx-text-fill: #ffffff;" text="Log Out">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

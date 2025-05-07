@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paymentPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-color: #343434; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.PaymentController">
+<AnchorPane fx:id="paymentPage" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-color: #007b5d; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.PaymentController">
    <children>
       <Label layoutX="20.0" layoutY="14.0" style="-fx-text-fill: #fbff00;" text="Payment">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Pane layoutX="36.0" layoutY="72.0" prefHeight="207.0" prefWidth="465.0" style="-fx-border-color: #ff8b00; -fx-border-radius: 20;">
+      <Pane layoutX="36.0" layoutY="72.0" prefHeight="207.0" prefWidth="465.0" style="-fx-border-color: #ffffff; -fx-border-radius: 20;">
          <children>
             <Label layoutX="14.0" layoutY="6.0" style="-fx-text-fill: #ff8b00;" text="Payment Details">
                <font>
@@ -51,7 +51,7 @@
             <ComboBox fx:id="comBoxPaymentStatus" layoutX="200.0" layoutY="158.0" prefHeight="30.0" prefWidth="250.0" promptText="Payment Status" />
          </children>
       </Pane>
-      <Pane layoutX="588.0" layoutY="72.0" prefHeight="131.0" prefWidth="422.0" style="-fx-border-color: #00f7ff; -fx-border-radius: 20;">
+      <Pane layoutX="588.0" layoutY="72.0" prefHeight="131.0" prefWidth="422.0" style="-fx-border-color: #ffffff; -fx-border-radius: 20;">
          <children>
             <Label layoutX="14.0" layoutY="6.0" style="-fx-text-fill: #00f7ff;" text="Patient And Session Info">
                <font>

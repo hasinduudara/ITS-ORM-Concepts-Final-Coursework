@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPaneTherapistManagement" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-background-color: #3b3b3b;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.TherapistManagementController">
+<AnchorPane fx:id="AnchorPaneTherapistManagement" prefHeight="702.0" prefWidth="1047.0" style="-fx-background-radius: 30; -fx-border-radius: 30; -fx-background-color: #007b5d;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.TherapistManagementController">
    <children>
       <Label layoutX="20.0" layoutY="14.0" style="-fx-text-fill: #f3ff00;" text="Therapist Management">
          <font>

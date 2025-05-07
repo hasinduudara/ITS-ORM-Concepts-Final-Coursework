@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="signUpPage" prefHeight="750.0" prefWidth="1500.0" style="-fx-background-color: #2c2c2c;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.SignUpPageController">
+<AnchorPane fx:id="signUpPage" prefHeight="750.0" prefWidth="1500.0" style="-fx-background-color: #00b682;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.mentalhealth.controller.SignUpPageController">
    <children>
       <ImageView fitHeight="585.0" fitWidth="529.0" layoutX="910.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
